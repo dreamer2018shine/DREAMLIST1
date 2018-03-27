@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="activitytest.example.com.dreamlist">
+
+    <application
+        android:name=".application.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.DreamListActivity"
+            android:label="@string/dreamlist"></activity>
+        <activity android:name=".ui.TodayPlanActivity"
+            android:label="@string/todayplan"></activity>
+        <activity android:name=".ui.CheckOutActivity"
+            android:label="@string/checkout"></activity>
+        <activity android:name=".ui.MemoryActivity"
+            android:label="@string/memory"></activity>
+        <activity android:name=".ui.AchievementActivity"
+            android:label="@string/achievement"></activity>
+        <activity android:name=".ui.EncouragementActivity"
+            android:label="@string/encouragement"></activity>
+    </application>
+
+</manifest>
+
+

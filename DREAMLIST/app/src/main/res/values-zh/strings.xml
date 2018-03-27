@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">梦想清单</string>
+    <string name="dreamlist">梦想清单</string>
+    <string name="todayplan">今日计划</string>
+    <string name="checkout">点评成绩</string>
+    <string name="memory">回忆往昔</string>
+    <string name="achievement">辉煌成就</string>
+    <string name="encouragement">来点干货</string>
+</resources>
