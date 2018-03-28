@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="activitytest.example.com.dreamlist">
+    <!--读取Log -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!--允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".application.BaseApplication"
@@ -11,13 +15,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.SplashActivity"
+        android:theme="@style/NoActivityFullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"></activity>
+
+
+
+        <activity android:name=".ui.GuideActivity"
+            android:theme="@style/NoActivityFullscreen"></activity>
+
+
+
+        <activity android:name=".ui.LoginActivity"
+            android:label="@string/login"></activity>
+
+
+
+        <activity android:name=".ui.RegisteredActivity"
+            android:label="@string/registered">
+        </activity>
+
+
         <activity android:name=".ui.DreamListActivity"
             android:label="@string/dreamlist"></activity>
         <activity android:name=".ui.TodayPlanActivity"

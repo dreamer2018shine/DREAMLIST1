@@ -6,4 +6,16 @@
     <string name="memory">回忆往昔</string>
     <string name="achievement">辉煌成就</string>
     <string name="encouragement">来点干货</string>
+    <string name="login">登录</string>
+    <string name="username">用户名</string>
+    <string name="password">输入密码</string>
+    <string name="passwordagain">确认密码</string>
+    <string name="registered">注册</string>
+
+    <string name="text_registered_successful">注册成功</string>
+    <string name="text_registered_failure">注册失败:</string>
+
+    <string name="text_tost_empty">输入框不能为空</string>
+
+    <string name="text_two_input_not_consistent">两次输入的密码不一致</string>
 </resources>

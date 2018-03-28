@@ -21,4 +21,12 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <!--全屏主題-->
+    <style name="NoActivityFullscreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
 </resources>
