@@ -20,6 +20,7 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
     private EditText et_user;
     private EditText et_pass;
     private EditText et_password;
+    private EditText et_email;
     private Button btnRegistered;
 
     @Override
@@ -34,6 +35,7 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
         et_user = (EditText) findViewById(R.id.et_user);
         et_pass = (EditText) findViewById(R.id.et_pass);
         et_password = (EditText) findViewById(R.id.et_password);
+        et_email = (EditText) findViewById(R.id.et_email);
         btnRegistered = (Button) findViewById(R.id.btnRegistered);
         btnRegistered.setOnClickListener(this);
     }
@@ -46,8 +48,10 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
                 String name = et_user.getText().toString().trim();
                 String pass = et_pass.getText().toString().trim();
                 String password = et_password.getText().toString().trim();
+                String email = et_email.getText().toString().trim();
                 //判断是否为空
-                if (!TextUtils.isEmpty(name) & !TextUtils.isEmpty(pass) & !TextUtils.isEmpty(password)) {
+                if (!TextUtils.isEmpty(name) & !TextUtils.isEmpty(pass) & !TextUtils.isEmpty(password) &
+                !TextUtils.isEmpty(email)) {
 
 
 
@@ -60,7 +64,7 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
                         MyUser user = new MyUser();
                         user.setUsername(name);
                         user.setPassword(password);
-
+                        user.setEmail(email);
 
                         user.signUp(new SaveListener<MyUser>() {
                             @Override

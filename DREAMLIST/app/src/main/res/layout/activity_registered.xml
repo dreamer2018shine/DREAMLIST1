@@ -23,6 +23,17 @@
         android:layout_height="wrap_content"
         android:hint="@string/passwordagain"
         android:password="true"/>
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_email"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_register_remind"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp"/>
     <Button
         android:id="@+id/btnRegistered"
         android:layout_width="match_parent"
