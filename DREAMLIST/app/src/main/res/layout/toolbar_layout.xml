@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:background="@android:color/holo_blue_light"
-        android:title="hello">
+        >
         <!--android:minHeight="?attr/actionBarSize"-->
         <!--android:background="@android:color/holo_green_light"-->
         <!--android:title="hello">-->

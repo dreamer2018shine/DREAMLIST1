@@ -1,100 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="activitytest.example.com.dreamlist.MainActivity">
 
-    //xmlns是命名空间，没有它android:写不了
-
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:background="@android:color/holo_blue_light">
-
-
-    </android.support.v7.widget.Toolbar>
-
+    android:id="@+id/drawer_layout"
+    tools:context=".MainActivity">
+    <!--android:fitsSystemWindows="false"-->
+    <!--Activity要显示的主界面-->
+    <!--tools:openDrawer="start"-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:orientation="vertical"
+        tools:context="activitytest.example.com.dreamlist.MainActivity">
 
-        <Button
-            android:id="@+id/dreamlist"
-            android:text="@string/dreamlist"
-            android:textSize="20dp"
+        //xmlns是命名空间，没有它android:写不了
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:titleMargin="center"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@android:color/holo_blue_light">
+
+            <ImageView
+                android:id="@+id/main_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu"
+
+                android:layout_margin="20dp"/>
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#fff"/>
-        <Button
-            android:id="@+id/todayplan"
-            android:text="@string/todayplan"
-            android:textSize="20dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/dreamlist"
+                android:text="@string/dreamlist"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"/>
+            <Button
+                android:id="@+id/todayplan"
+                android:text="@string/todayplan"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"/>
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/checkout"
+                android:text="@string/checkout"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"/>
+            <Button
+                android:id="@+id/memory"
+                android:text="@string/memory"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/achievement"
+                android:text="@string/achievement"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fff"/>
+            <Button
+                android:id="@+id/encouragement"
+                android:text="@string/encouragement"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"/>
+        </LinearLayout>
+
+
+
     </LinearLayout>
 
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <android.support.design.widget.NavigationView
+        android:id="@+id/drawer_navigation"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_gravity="left"
+        android:fitsSystemWindows="true"
 
-        <Button
-            android:id="@+id/checkout"
-            android:text="@string/checkout"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"/>
-        <Button
-            android:id="@+id/memory"
-            android:text="@string/memory"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#fff"/>
-    </LinearLayout>
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:menu="@menu/drawer_menu"
+        app:headerLayout="@layout/drawer_header"/>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
-
-        <Button
-            android:id="@+id/achievement"
-            android:text="@string/achievement"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#fff"/>
-        <Button
-            android:id="@+id/encouragement"
-            android:text="@string/encouragement"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"/>
-    </LinearLayout>
-
-
-
-</LinearLayout>
-<!--<include layout="@layout/drawerlayout_main"/>-->
+</android.support.v4.widget.DrawerLayout>
