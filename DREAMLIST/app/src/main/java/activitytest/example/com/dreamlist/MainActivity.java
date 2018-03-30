@@ -1,5 +1,6 @@
 package activitytest.example.com.dreamlist;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -20,12 +21,18 @@ import activitytest.example.com.dreamlist.ui.BaseActivity;
 import activitytest.example.com.dreamlist.ui.CheckOutActivity;
 import activitytest.example.com.dreamlist.ui.DreamListActivity;
 import activitytest.example.com.dreamlist.ui.EncouragementActivity;
+import activitytest.example.com.dreamlist.ui.EventActivity;
+import activitytest.example.com.dreamlist.ui.HistoryActivity;
 import activitytest.example.com.dreamlist.ui.MemoryActivity;
+import activitytest.example.com.dreamlist.ui.SettingActivity;
 import activitytest.example.com.dreamlist.ui.TodayPlanActivity;
 
+import static activitytest.example.com.dreamlist.R.id.item_event;
+import static activitytest.example.com.dreamlist.R.id.item_history;
+import static activitytest.example.com.dreamlist.R.id.item_setting;
 import static activitytest.example.com.dreamlist.R.id.toolbar;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener  {
 
     //初始化导航试图和抽屉菜单
     private DrawerLayout drawerLayout;
@@ -50,12 +57,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         achievement.setOnClickListener(this);
         encouragement.setOnClickListener(this);
 
+        final MenuItem item_history= (MenuItem) findViewById(R.id.item_history);
+        MenuItem item_event= (MenuItem) findViewById(R.id.item_event);
+        MenuItem item_setting= (MenuItem) findViewById(R.id.item_setting);
+//        item_history.setOnMenuItemClickListener(MainActivity.this);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //设置主标题颜色
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
         //设置导航菜单
-//        toolbar.setNavigationIcon(R.drawable.ic_menu);
+//      toolbar.setNavigationIcon(R.drawable.ic_menu);
 
 
         //ID与视图关联
@@ -74,12 +87,39 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             public boolean onNavigationItemSelected( MenuItem item) {
                 //item.setChecked(true);
                 //写item的点击事件触发了什么
-                Toast.makeText(MainActivity.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+
+                switch (item.getItemId())
+                {
+                    case R.id.item_history:
+                    {
+                        Intent intent1 = new Intent(MainActivity.this, HistoryActivity.class);
+                        startActivity(intent1);
+                        break;
+                    }
+                    case R.id.item_event:
+                    {
+                        Intent intent2 = new Intent(MainActivity.this, EventActivity.class);
+                        startActivity(intent2);
+                        break;
+                    }
+                    case R.id.item_setting:
+                    {
+                        Intent intent3 = new Intent(MainActivity.this, SettingActivity.class);
+                        startActivity(intent3);
+                        break;
+                    }
+                }
+                //return super.onOptionsItemSelected(item);
+
+
+
                 //关闭抽屉菜单
                 drawerLayout.closeDrawer(navigationView);
                 return true;
             }
         });
+
         //获得抽屉布局
 //                drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        //在布局文件中生命DrawerLayout后，即可从边缘滑出抽屉了
@@ -98,25 +138,41 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
 
-
-////        对NavigationIcon添加点击
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                switch (v.getId()){
-//                    case R.id.main_menu:
-//                        //点击菜单，跳出侧滑菜单
-//                        // DrawerLayout.closeDrawer方法用于隐藏侧边菜单，
-//                        // DrawerLayout.openDrawer方法用于展开侧边菜单
-//                        if (drawerLayout.isDrawerOpen(navigationView)){
-//                            drawerLayout.closeDrawer(navigationView);
-//                        }else{
-//                            drawerLayout.openDrawer(navigationView);
-//                        }
-//                        break;
-//                }
+//    public boolean onCreateOptionsMenu(Menu menu)
+//    {
+//        super.onCreateOptionsMenu(menu);
+////        menu.add(0,ITEM0,0,"button1");
+////        menu.add(0,ITEM1,0,"button2");
+////        menu.findItem(ITEM1);
+//        return true;
+//    }
+//    public boolean onOptionsItemSelected(MenuItem item)
+//    {
+//        switch (item.getItemId())
+//        {
+//            case item_history:
+//            {
+//                Intent intent1 = new Intent(MainActivity.this, MemoryActivity.class);
+//                startActivity(intent1);
+//                break;
 //            }
-//        });
+//            case item_event:
+//            {
+//                Intent intent2 = new Intent(MainActivity.this, AchievementActivity.class);
+//                startActivity(intent2);
+//                break;
+//            }
+//            case item_setting:
+//            {
+//                Intent intent3 = new Intent(MainActivity.this, SettingActivity.class);
+//                startActivity(intent3);
+//                break;
+//            }
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
+
         //初始化ActionBarDrawerToggle(ActionBarDrawerToggle就是一个开关一样用来打开或者关闭drawer)
 //        drawerToggle = new ActionBarDrawerToggle(MainActivity.this,drawerLayout,toolbar,R.string.openString,R.string.closeString){
             /*
@@ -156,25 +212,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
 
-//    public void onClick(View v) {
-//        switch (v.getId()){
-//
-//        }
-//    }
-    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-////        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
 
-    /*
-        * 初始化布局控件
-        * */
-//    private void initView() {
-////        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        navigationView = (NavigationView) findViewById(R.id.drawer_navigation);
-//    }
+
     public void onClick(View v)
     {
         switch (v.getId())

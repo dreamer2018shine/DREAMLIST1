@@ -42,4 +42,7 @@
 
     <string name="openString">菜单打开了</string>
     <string name="closeString">菜单关闭了</string>
+
+    <string name="history">历史回眸</string>
+    <string name="event">重大成果</string>
 </resources>
