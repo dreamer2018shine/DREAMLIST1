@@ -22,7 +22,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
 
-        android:label=""
+        android:label="@string/app_name"
 
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -30,15 +30,18 @@
         <activity android:name=".ui.SplashActivity"
         android:theme="@style/NoActivityFullscreen">
 
-        </activity>
-        <activity android:name=".MainActivity">
 
+        </activity>
+        <activity android:name=".MainActivity"
+          android:label="">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
 
         </activity>
 

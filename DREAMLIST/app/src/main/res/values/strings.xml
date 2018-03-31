@@ -45,4 +45,9 @@
 
     <string name="history">历史回眸</string>
     <string name="event">重大成果</string>
+
+    <string name="text_boy">男</string>
+    <string name="text_girl_f">女</string>
+    <string name="text_nothing">这个人很懒，什么都没有留下！</string>
+    <string name="no_set">您还没有设置</string>
 </resources>
