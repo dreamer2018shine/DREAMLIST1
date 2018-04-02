@@ -22,13 +22,14 @@
         android:text="Andy Lau"
         android:textSize="18sp"/>
     <TextView
+
         android:layout_marginLeft="20dp"
         android:layout_below="@+id/nick_name"
         android:layout_alignParentLeft="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/desc"
         android:text="做一稞低头的麦穗，饱满而谦逊！"
+        android:id="@+id/desc"
         android:textSize="18sp"/>
 
 </LinearLayout>

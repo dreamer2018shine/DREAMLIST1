@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import activitytest.example.com.dreamlist.ui.AchievementActivity;
@@ -27,6 +28,7 @@ import activitytest.example.com.dreamlist.ui.MemoryActivity;
 import activitytest.example.com.dreamlist.ui.SettingActivity;
 import activitytest.example.com.dreamlist.ui.TodayPlanActivity;
 
+import static activitytest.example.com.dreamlist.R.id.et_desc;
 import static activitytest.example.com.dreamlist.R.id.item_event;
 import static activitytest.example.com.dreamlist.R.id.item_history;
 import static activitytest.example.com.dreamlist.R.id.item_setting;
@@ -39,10 +41,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener  
     private NavigationView navigationView;
     //关联菜单按钮
     ImageView menu;
+    ImageView header_icon;
+    TextView nick_name;
+    TextView desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ImageView header_icon= (ImageView) findViewById(R.id.header_icon);
+        TextView nick_name=(TextView)findViewById(R.id.nick_name);
+        TextView desc= (TextView) findViewById(R.id.desc);
+        //intent接收数据
+        SettingActivity.Person person= (SettingActivity.Person) getIntent().getSerializableExtra("person");
+        header_icon=person.getProfile_image();
+        nick_name=person.getEt_username();
+        desc=person.getEt_desc();
         //点击按钮，触发监听事件
         Button dreamlist = (Button) findViewById(R.id.dreamlist);
         Button todayplan = (Button) findViewById(R.id.todayplan);

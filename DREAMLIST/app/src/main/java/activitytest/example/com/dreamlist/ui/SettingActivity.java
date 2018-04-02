@@ -3,8 +3,10 @@ package activitytest.example.com.dreamlist.ui;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcel;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -17,7 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.Serializable;
 
+import activitytest.example.com.dreamlist.MainActivity;
 import activitytest.example.com.dreamlist.R;
 import activitytest.example.com.dreamlist.entity.MyUser;
 import activitytest.example.com.dreamlist.utils.L;
@@ -50,6 +54,37 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private Button btn_picture;
     private Button btn_cancel;
 
+//    @Parcel
+    public class Person implements Serializable {
+        EditText et_username;
+        EditText et_desc;
+        CircleImageView profile_image;
+
+        public EditText getEt_username() {
+            return et_username;
+        }
+
+        public void setEt_username(EditText et_username) {
+            this.et_username = et_username;
+        }
+
+        public EditText getEt_desc() {
+            return et_desc;
+        }
+
+        public void setEt_desc(EditText et_desc) {
+            this.et_desc = et_desc;
+        }
+
+        public CircleImageView getProfile_image() {
+            return profile_image;
+        }
+
+        public void setProfile_image(CircleImageView profile_image) {
+            this.profile_image = profile_image;
+        }
+}
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +109,22 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         profile_image = (CircleImageView)findViewById(R.id.profile_image);
         profile_image.setOnClickListener(this);
 
+        //设置具体的值
+        MyUser userInfo = BmobUser.getCurrentUser(MyUser.class);
+        et_username.setText(userInfo.getUsername());
+        et_age.setText(userInfo.getAge() + "");
+        et_sex.setText(userInfo.isSex() ? getString(R.string.text_boy) : getString(R.string.text_girl_f));
+        et_desc.setText(userInfo.getDesc());
 
+        //intent传入数据
+        Person person=new Person();
+        person.setProfile_image(profile_image);
+        person.setEt_username(et_username);
+        person.setEt_desc(et_desc);
+
+        Intent intent=new Intent(SettingActivity.this,MainActivity.class);
+        intent.putExtra("person", person);
+        startActivity(intent);
 
         //初始化dialog
         dialog = new CustomDialog(this, 0, 0,
@@ -91,12 +141,23 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         //默认是不可点击的/不可输入
         setEnabled(false);
 
-        //设置具体的值
-        MyUser userInfo = BmobUser.getCurrentUser(MyUser.class);
-        et_username.setText(userInfo.getUsername());
-        et_age.setText(userInfo.getAge() + "");
-        et_sex.setText(userInfo.isSex() ? getString(R.string.text_boy) : getString(R.string.text_girl_f));
-        et_desc.setText(userInfo.getDesc());
+//        //设置具体的值
+//        MyUser userInfo = BmobUser.getCurrentUser(MyUser.class);
+//        et_username.setText(userInfo.getUsername());
+//        et_age.setText(userInfo.getAge() + "");
+//        et_sex.setText(userInfo.isSex() ? getString(R.string.text_boy) : getString(R.string.text_girl_f));
+//        et_desc.setText(userInfo.getDesc());
+
+
+
+
+//        Intent intent=new Intent(SettingActivity.this,MainActivity.class);
+//        //用Bundle携带数据
+////        Bundle bundle=new Bundle();
+////        bundle.putString("et_desc",userInfo.getDesc());
+////        intent.putExtras(bundle);
+//
+//        startActivity(intent);
     }
 
     //控制焦点
