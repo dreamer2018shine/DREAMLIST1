@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.os.Parcel;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,29 +56,29 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private Button btn_cancel;
 
 //    @Parcel
-    public class Person implements Serializable {
+//    public class Person implements Serializable {
+////        EditText et_username;
+////        EditText et_desc;
 //        EditText et_username;
 //        EditText et_desc;
-        EditText et_username;
-//        String et_desc;
 //        CircleImageView profile_image;
-
-        public EditText getEt_username() {
-            return et_username;
-        }
-
-        public void setEt_username(EditText et_username) {
-            this.et_username = et_username;
-        }
-
-//        public String getEt_desc() {
+//
+//        public EditText getEt_username() {
+//            return et_username;
+//        }
+//
+//        public void setEt_username(EditText et_username) {
+//            this.et_username = et_username;
+//        }
+//
+//        public EditText getEt_desc() {
 //            return et_desc;
 //        }
 //
-//        public void setEt_desc(String et_desc) {
+//        public void setEt_desc(EditText et_desc) {
 //            this.et_desc = et_desc;
 //        }
-
+//
 //        public CircleImageView getProfile_image() {
 //            return profile_image;
 //        }
@@ -85,7 +86,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 //        public void setProfile_image(CircleImageView profile_image) {
 //            this.profile_image = profile_image;
 //        }
-}
+//}
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +100,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         edit_user.setOnClickListener(this);
 
         et_username = (EditText) findViewById(R.id.et_username);
-        String username=et_username.getText().toString();
+//        String username=et_username.getText().toString();
         et_sex = (EditText) findViewById(R.id.et_sex);
         et_age = (EditText) findViewById(R.id.et_age);
         et_desc = (EditText) findViewById(R.id.et_desc);
@@ -112,22 +113,20 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         profile_image = (CircleImageView)findViewById(R.id.profile_image);
         profile_image.setOnClickListener(this);
 
-        //设置具体的值
-        MyUser userInfo = BmobUser.getCurrentUser(MyUser.class);
-        et_username.setText(userInfo.getUsername());
-        et_age.setText(userInfo.getAge() + "");
-        et_sex.setText(userInfo.isSex() ? getString(R.string.text_boy) : getString(R.string.text_girl_f));
-        et_desc.setText(userInfo.getDesc());
-
-        //intent传入数据
-        Person person=new Person();
-//        person.setProfile_image(profile_image);
-        person.setEt_username(et_username);
+//        //intent传入数据
+//        Person person=new Person();
+//        if(profile_image!=null){
+//            person.setProfile_image(profile_image);
+//        }else {
+//            Log.d("profile_image","profile_image=null");
+//        }
+//
+//        person.setEt_username(et_username);
 //        person.setEt_desc(et_desc);
-
-        Intent intent=new Intent(SettingActivity.this,MainActivity.class);
-        intent.putExtra("person", person);
-        startActivity(intent);
+//
+//        Intent intent=new Intent(SettingActivity.this,MainActivity.class);
+//        intent.putExtra("person", person);
+//        startActivity(intent);
 
         //初始化dialog
         dialog = new CustomDialog(this, 0, 0,
@@ -144,12 +143,12 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         //默认是不可点击的/不可输入
         setEnabled(false);
 
-//        //设置具体的值
-//        MyUser userInfo = BmobUser.getCurrentUser(MyUser.class);
-//        et_username.setText(userInfo.getUsername());
-//        et_age.setText(userInfo.getAge() + "");
-//        et_sex.setText(userInfo.isSex() ? getString(R.string.text_boy) : getString(R.string.text_girl_f));
-//        et_desc.setText(userInfo.getDesc());
+        //设置具体的值
+        MyUser userInfo = BmobUser.getCurrentUser(MyUser.class);
+        et_username.setText(userInfo.getUsername());
+        et_age.setText(userInfo.getAge() + "");
+        et_sex.setText(userInfo.isSex() ? getString(R.string.text_boy) : getString(R.string.text_girl_f));
+        et_desc.setText(userInfo.getDesc());
 
 
 
@@ -339,6 +338,5 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         super.onDestroy();
         //保存
         UtilTools.putImageToShare(SettingActivity.this,profile_image);
-//        UtilTools.getImageToShare(SettingActivity.this,profile_image);
     }
 }

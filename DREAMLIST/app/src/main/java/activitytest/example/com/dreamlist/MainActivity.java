@@ -44,27 +44,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener  
     //关联菜单按钮
     ImageView menu;
 //    PreferenceActivity.Header header;
-    ImageView header_icon;
-    TextView nick_name;
-    TextView desc;
+//    ImageView header_icon;
+//    TextView nick_name;
+//    TextView desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView header_icon= (ImageView) findViewById(R.id.header_icon);
-//        header_icon.setOnClickListener(this);
-        TextView nick_name=(TextView)findViewById(R.id.nick_name);
-//        nick_name.setOnClickListener(this);
-        TextView desc= (TextView) findViewById(R.id.desc);
-//        desc.setOnClickListener(this);
-        //intent接收数据，触发监听
-        SettingActivity.Person person= (SettingActivity.Person) getIntent().getSerializableExtra("person");
-//        header_icon=person.getProfile_image();
-//        nick_name=person.getEt_username();
-//        desc=person.getEt_desc();
-//        Log.d("头像","头像->"+person.getProfile_image());
-        Log.d("姓名","姓名->"+person.getEt_username());
-//        Log.d("简介","简介->"+person.getEt_desc());
+//        ImageView header_icon= (ImageView) findViewById(R.id.header_icon);
+//        TextView nick_name=(TextView)findViewById(R.id.nick_name);
+//        TextView desc= (TextView) findViewById(R.id.desc);
+//        //intent接收数据，触发监听
+//        SettingActivity.Person person= (SettingActivity.Person) getIntent().getSerializableExtra("person");
+//        if(header_icon!=null){
+//            header_icon=person.getProfile_image();
+//        }else
+//        {
+//            Log.d("header_icon","header_icon=null");
+//        }
+
+//        nick_name=(TextView) person.getEt_username();
+//        desc=(TextView) person.getEt_desc();
+////        Log.d("头像","头像->"+person.getProfile_image());
+//        Log.d("姓名","姓名->"+person.getEt_username());
+////        Log.d("简介","简介->"+person.getEt_desc());
         //点击按钮，触发监听事件
         Button dreamlist = (Button) findViewById(R.id.dreamlist);
         Button todayplan = (Button) findViewById(R.id.todayplan);

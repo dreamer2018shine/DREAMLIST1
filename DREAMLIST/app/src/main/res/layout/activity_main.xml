@@ -47,19 +47,21 @@
             <Button
                 android:id="@+id/dreamlist"
                 android:text="@string/dreamlist"
-                android:textSize="20dp"
+                android:textColor="@color/color_white"
+                android:textSize="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#fff"/>
+                android:background="@drawable/p5"/>
             <Button
                 android:id="@+id/todayplan"
                 android:text="@string/todayplan"
-                android:textSize="20dp"
+                android:textColor="@color/color_white"
+                android:textSize="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorPrimaryDark"/>
+                android:background="@drawable/p2"/>
         </LinearLayout>
 
 
@@ -72,19 +74,21 @@
             <Button
                 android:id="@+id/checkout"
                 android:text="@string/checkout"
-                android:textSize="20dp"
+                android:textColor="@color/color_white"
+                android:textSize="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorPrimaryDark"/>
+                android:background="@drawable/p3"/>
             <Button
                 android:id="@+id/memory"
                 android:text="@string/memory"
-                android:textSize="20dp"
+                android:textColor="@color/color_white"
+                android:textSize="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#fff"/>
+                android:background="@drawable/p1"/>
         </LinearLayout>
 
 
@@ -96,19 +100,21 @@
             <Button
                 android:id="@+id/achievement"
                 android:text="@string/achievement"
-                android:textSize="20dp"
+                android:textSize="30dp"
+                android:textColor="@color/color_white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#fff"/>
+                android:background="@drawable/p4"/>
             <Button
                 android:id="@+id/encouragement"
                 android:text="@string/encouragement"
-                android:textSize="20dp"
+                android:textSize="30dp"
+                android:textColor="@color/color_white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorPrimaryDark"/>
+                android:background="@drawable/p6"/>
         </LinearLayout>
 
 
