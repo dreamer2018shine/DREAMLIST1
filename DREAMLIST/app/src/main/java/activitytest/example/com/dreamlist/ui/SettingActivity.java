@@ -56,9 +56,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
 //    @Parcel
     public class Person implements Serializable {
+//        EditText et_username;
+//        EditText et_desc;
         EditText et_username;
-        EditText et_desc;
-        CircleImageView profile_image;
+//        String et_desc;
+//        CircleImageView profile_image;
 
         public EditText getEt_username() {
             return et_username;
@@ -68,21 +70,21 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             this.et_username = et_username;
         }
 
-        public EditText getEt_desc() {
-            return et_desc;
-        }
+//        public String getEt_desc() {
+//            return et_desc;
+//        }
+//
+//        public void setEt_desc(String et_desc) {
+//            this.et_desc = et_desc;
+//        }
 
-        public void setEt_desc(EditText et_desc) {
-            this.et_desc = et_desc;
-        }
-
-        public CircleImageView getProfile_image() {
-            return profile_image;
-        }
-
-        public void setProfile_image(CircleImageView profile_image) {
-            this.profile_image = profile_image;
-        }
+//        public CircleImageView getProfile_image() {
+//            return profile_image;
+//        }
+//
+//        public void setProfile_image(CircleImageView profile_image) {
+//            this.profile_image = profile_image;
+//        }
 }
 
 
@@ -97,6 +99,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         edit_user.setOnClickListener(this);
 
         et_username = (EditText) findViewById(R.id.et_username);
+        String username=et_username.getText().toString();
         et_sex = (EditText) findViewById(R.id.et_sex);
         et_age = (EditText) findViewById(R.id.et_age);
         et_desc = (EditText) findViewById(R.id.et_desc);
@@ -118,9 +121,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
         //intent传入数据
         Person person=new Person();
-        person.setProfile_image(profile_image);
+//        person.setProfile_image(profile_image);
         person.setEt_username(et_username);
-        person.setEt_desc(et_desc);
+//        person.setEt_desc(et_desc);
 
         Intent intent=new Intent(SettingActivity.this,MainActivity.class);
         intent.putExtra("person", person);

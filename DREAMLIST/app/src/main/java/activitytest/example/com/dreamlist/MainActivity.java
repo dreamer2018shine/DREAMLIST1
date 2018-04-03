@@ -2,6 +2,7 @@ package activitytest.example.com.dreamlist;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.preference.PreferenceActivity;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -9,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,6 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener  
     private NavigationView navigationView;
     //关联菜单按钮
     ImageView menu;
+//    PreferenceActivity.Header header;
     ImageView header_icon;
     TextView nick_name;
     TextView desc;
@@ -49,13 +52,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener  
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView header_icon= (ImageView) findViewById(R.id.header_icon);
+//        header_icon.setOnClickListener(this);
         TextView nick_name=(TextView)findViewById(R.id.nick_name);
+//        nick_name.setOnClickListener(this);
         TextView desc= (TextView) findViewById(R.id.desc);
-        //intent接收数据
+//        desc.setOnClickListener(this);
+        //intent接收数据，触发监听
         SettingActivity.Person person= (SettingActivity.Person) getIntent().getSerializableExtra("person");
-        header_icon=person.getProfile_image();
-        nick_name=person.getEt_username();
-        desc=person.getEt_desc();
+//        header_icon=person.getProfile_image();
+//        nick_name=person.getEt_username();
+//        desc=person.getEt_desc();
+//        Log.d("头像","头像->"+person.getProfile_image());
+        Log.d("姓名","姓名->"+person.getEt_username());
+//        Log.d("简介","简介->"+person.getEt_desc());
         //点击按钮，触发监听事件
         Button dreamlist = (Button) findViewById(R.id.dreamlist);
         Button todayplan = (Button) findViewById(R.id.todayplan);
@@ -133,95 +142,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener  
             }
         });
 
-        //获得抽屉布局
-//                drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        //在布局文件中生命DrawerLayout后，即可从边缘滑出抽屉了
-//
-//        //ActionBarDrawerToggle作用是在toolbar上创建一个点击弹出drawer的按钮而已
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawerLayout.addDrawerListener(toggle);
-//        //不写这句话，是没有按钮显示的
-//        toggle.syncState();
-
-
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.drawer_navigation);
-//        navigationView.setNavigationItemSelectedListener(this);
 
     }
 
 
-//    public boolean onCreateOptionsMenu(Menu menu)
-//    {
-//        super.onCreateOptionsMenu(menu);
-////        menu.add(0,ITEM0,0,"button1");
-////        menu.add(0,ITEM1,0,"button2");
-////        menu.findItem(ITEM1);
-//        return true;
-//    }
-//    public boolean onOptionsItemSelected(MenuItem item)
-//    {
-//        switch (item.getItemId())
-//        {
-//            case item_history:
-//            {
-//                Intent intent1 = new Intent(MainActivity.this, MemoryActivity.class);
-//                startActivity(intent1);
-//                break;
-//            }
-//            case item_event:
-//            {
-//                Intent intent2 = new Intent(MainActivity.this, AchievementActivity.class);
-//                startActivity(intent2);
-//                break;
-//            }
-//            case item_setting:
-//            {
-//                Intent intent3 = new Intent(MainActivity.this, SettingActivity.class);
-//                startActivity(intent3);
-//                break;
-//            }
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
-
-        //初始化ActionBarDrawerToggle(ActionBarDrawerToggle就是一个开关一样用来打开或者关闭drawer)
-//        drawerToggle = new ActionBarDrawerToggle(MainActivity.this,drawerLayout,toolbar,R.string.openString,R.string.closeString){
-            /*
-            * 抽屉菜单打开监听
-            * */
-//            @Override
-//            public void onDrawerOpened(View drawerView) {
-//                Toast.makeText(MainActivity.this,"菜单打开了",Toast.LENGTH_SHORT).show();
-//                super.onDrawerOpened(drawerView);
-//            }
-//            /*
-//            * 抽屉菜单关闭监听
-//            * */
-//            @Override
-//            public void onDrawerClosed(View drawerView) {
-//                Toast.makeText(MainActivity.this,"菜单关闭了",Toast.LENGTH_SHORT).show();
-//                super.onDrawerClosed(drawerView);
-//            }
-//        };
-        /*
-        * NavigationView设置点击监听
-        * */
-
-        // navigation这个对象为null 因为你没有写fvb()!
-//        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//
-//        public boolean onNavigationItemSelected(MenuItem menuItem) {
-//                Toast.makeText(MainActivity.this,menuItem.getTitle(), Toast.LENGTH_SHORT).show();
-//                menuItem.setChecked(true);
-//                drawerLayout.closeDrawers();
-//                return false;
-//            }
-//        };
-//        drawerToggle.syncState();
-        //设置DrawerLayout的抽屉开关监听
-//        drawerLayout.setDrawerListener(drawerToggle);
 
 
 
@@ -265,6 +189,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener  
                     drawerLayout.openDrawer(navigationView);
                 }
                 break;
+//            case R.id.header_icon:
+//                SettingActivity.Person person= (SettingActivity.Person) getIntent().getSerializableExtra("person");
+//
+//            header_icon=person.getProfile_image();
+//                break;
+//            case R.id.nick_name:
+//                SettingActivity.Person person= (SettingActivity.Person) getIntent().getSerializableExtra("person");
+//            nick_name=person.getEt_username();
+//                break;
+//            case R.id.desc:
+//                SettingActivity.Person person= (SettingActivity.Person) getIntent().getSerializableExtra("person");
+//            desc=person.getEt_desc();
+//                break;
         }
 
     }
