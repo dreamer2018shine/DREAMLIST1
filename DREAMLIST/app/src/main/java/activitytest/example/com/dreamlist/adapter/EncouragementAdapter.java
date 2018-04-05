@@ -69,13 +69,13 @@ public class EncouragementAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-//        data = mList.get(position);
-//        viewHolder.tv_title.setText(data.getTitle());
-//        viewHolder.tv_source.setText(data.getSource());
-//        if(!TextUtils.isEmpty(data.getImgUrl())){
-//            //加载图片
+        data = mList.get(position);
+        viewHolder.tv_title.setText(data.getTitle());
+        viewHolder.tv_source.setText(data.getSource());
+        if(!TextUtils.isEmpty(data.getImgUrl())){
+            //加载图片
 //            PicassoUtils.loadImageViewSize(mContext, data.getImgUrl(), width/3, 250, viewHolder.iv_img);
-//        }
+        }
         return convertView;
     }
 

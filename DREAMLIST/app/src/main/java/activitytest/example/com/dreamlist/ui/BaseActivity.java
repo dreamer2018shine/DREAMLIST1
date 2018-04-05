@@ -36,17 +36,6 @@ public class BaseActivity extends AppCompatActivity  {
         setContentView(R.layout.toolbar_layout);
         Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        //设置主标题颜色
-//        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
-//        //设置导航菜单
-//        toolbar.setNavigationIcon(R.drawable.ic_menu);
-//        //对NavigationIcon添加点击
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
         //给它加上一个返回按钮
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

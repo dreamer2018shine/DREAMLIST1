@@ -18,4 +18,8 @@ public class StaticClass {
 
     //Bmob key
     public static final String BMOB_APP_ID = "2bb8bc33997394a098d6714d49e02570";
+
+    //encouragement
+    //key
+    public static final String ENCOURAGEMENT_KEY = "78f723dccf85aea324a3cf0daac97f35";
 }
