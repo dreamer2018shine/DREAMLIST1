@@ -73,7 +73,8 @@
         <activity android:name=".ui.EventActivity"
             android:label="@string/event"></activity>
         <activity android:name=".ui.DreamListActivity"
-            android:label="@string/dreamlist"></activity>
+            android:label="@string/dreamlist"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.TodayPlanActivity"
             android:label="@string/todayplan"></activity>
         <activity android:name=".ui.CheckOutActivity"
@@ -84,6 +85,9 @@
             android:label="@string/achievement"></activity>
         <activity android:name=".ui.EncouragementActivity"
             android:label="@string/encouragement"></activity>
+        <activity android:name=".ui.AddContent"
+            android:label=""
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

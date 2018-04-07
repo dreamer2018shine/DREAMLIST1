@@ -1,28 +1,12 @@
 package activitytest.example.com.dreamlist.ui;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import activitytest.example.com.dreamlist.R;
-import activitytest.example.com.dreamlist.adapter.EncouragementAdapter;
-import activitytest.example.com.dreamlist.entity.EncouragementData;
-import activitytest.example.com.dreamlist.utils.L;
-import activitytest.example.com.dreamlist.utils.StaticClass;
 
 /**
  * Created by HP on 2018/3/27.
