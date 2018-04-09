@@ -85,9 +85,8 @@
             android:label="@string/achievement"></activity>
         <activity android:name=".ui.EncouragementActivity"
             android:label="@string/encouragement"></activity>
-        <activity android:name=".ui.AddContent"
-            android:label=""
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.DreamListEdit"></activity>
+        <activity android:name=".ui.TodayPlanEdit"></activity>
     </application>
 
 </manifest>

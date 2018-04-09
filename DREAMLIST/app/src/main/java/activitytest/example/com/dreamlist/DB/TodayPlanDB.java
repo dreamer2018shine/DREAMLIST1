@@ -5,17 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-/**
- * Created by HP on 2018/4/5.
- */
-
-public class DreamListDB extends SQLiteOpenHelper {
+public class TodayPlanDB extends SQLiteOpenHelper {
     public static final String TABLE_NAME_NOTES = "note";
     public static final String COLUMN_NAME_ID = "_id";
     public static final String COLUMN_NAME_NOTE_CONTENT = "content";
     public static final String COLUMN_NAME_NOTE_DATE = "date";
 
-    public DreamListDB(Context context) {
+    public TodayPlanDB(Context context) {
         super(context, "note", null, 1);
         // TODO Auto-generated constructor stub
     }
@@ -46,3 +42,4 @@ public class DreamListDB extends SQLiteOpenHelper {
     }
 
 }
+

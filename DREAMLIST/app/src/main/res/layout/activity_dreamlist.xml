@@ -1,44 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        android:background="@android:color/holo_blue_light">
-    </android.support.v7.widget.Toolbar>
+        android:background="@android:color/holo_blue_light"/>
+
+
+
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/text"
-            android:text="文字"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/img"
-            android:text="图文"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/video"
-            android:text="视频"/>
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_margin="5dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
     </LinearLayout>
-    <ListView
-        android:id="@+id/list"
+
+    <Button
+        android:id="@+id/btn_editnote"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_bg"
+        android:text="添加梦想"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
 
-    </ListView>
-
+    <!--android:background="@drawable/btn_selctor"-->
 </LinearLayout>
