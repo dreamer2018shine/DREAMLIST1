@@ -11,10 +11,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DreamListDB extends SQLiteOpenHelper {
     public static final String TABLE_NAME="DreamList";
     public static final String CONTENT="content";
-    public static final String PATH="path";
-    public static final String VIDEO="video";
+//    public static final String PATH="path";
+//    public static final String VIDEO="video";
     public static final String ID="_id";
     public static final String TIME="time";
+//    public static final String Column="column";
     public DreamListDB(Context context) {
         super(context, "DreamList", null, 1);
     }
@@ -23,8 +24,8 @@ public class DreamListDB extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
        db.execSQL("CREATE TABLE "+TABLE_NAME+"("+ID
        +" INTEGER PRIMARY KEY AUTOINCREMENT,"+CONTENT
-       +" TEXT NOT NULL,"+PATH+" TEXT NOT NULL,"
-               + VIDEO+" TEXT NOT NULL,"+TIME+" TEXT NOT NULL)");
+       +" TEXT NOT NULL,"
+               +TIME+" TEXT NOT NULL)");
     }
 
     @Override

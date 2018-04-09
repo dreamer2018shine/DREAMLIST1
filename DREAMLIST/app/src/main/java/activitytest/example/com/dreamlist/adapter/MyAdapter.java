@@ -2,6 +2,9 @@ package activitytest.example.com.dreamlist.adapter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,12 +46,43 @@ public class MyAdapter extends BaseAdapter {
         TextView timetv=layout.findViewById(R.id.list_time);
         ImageView imgiv=layout.findViewById(R.id.list_img);
         ImageView videoiv=layout.findViewById(R.id.list_video);
+
         cursor.moveToPosition(position);
+
         String content=cursor.getString(cursor.getColumnIndex("content"));
         String time=cursor.getString(cursor.getColumnIndex("time"));
-        //?
+//        String url=cursor.getString(cursor.getColumnIndex("path"));
+        //content为在SQLite中显示的行的名称
+        contenttv.setText(content);
         timetv.setText(time);
+
+//        System.out.println(url);
+//        imgiv.setImageBitmap(getImageThumbnail(url,200,200));
         return layout;
 
     }
+//    public Bitmap getImageThumbnail(String uri,int width,int height){
+//        Bitmap bitmap=null;
+//        BitmapFactory.Options options=new BitmapFactory.Options();
+//        options.inJustDecodeBounds=true;
+//        bitmap=BitmapFactory.decodeFile(uri,options);
+//        options.inJustDecodeBounds=false;
+//        int beWidth=options.outWidth / width;
+//        int beheight=options.outHeight / height;
+//        int be = 1;
+//        if(beWidth<beheight){
+//            be=beWidth;
+//        }else{
+//            be=beheight;
+//        }
+//        if(be <=0){
+//            be=1;
+//        }
+//        options.inSampleSize=be;
+//        bitmap=BitmapFactory.decodeFile(uri,options);
+//        bitmap= ThumbnailUtils.extractThumbnail(bitmap,width,height,
+//                ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+//        return bitmap;
+//
+//    }
 }

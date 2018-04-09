@@ -2,6 +2,7 @@ package activitytest.example.com.dreamlist.ui;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import java.util.Date;
 
 import activitytest.example.com.dreamlist.DB.DreamListDB;
 import activitytest.example.com.dreamlist.R;
+import activitytest.example.com.dreamlist.adapter.MyAdapter;
 
 /**
  * Created by HP on 2018/3/27.
@@ -27,6 +29,10 @@ public class DreamListActivity extends BaseActivity implements View.OnClickListe
     private Button textbtn,imgbtn,videobtn;
     private ListView lv;
     private Intent i;
+    private MyAdapter adapter;
+    private DreamListDB dreamListDB;
+    private SQLiteDatabase dbReader;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dreamlist);
@@ -49,6 +55,9 @@ public class DreamListActivity extends BaseActivity implements View.OnClickListe
         textbtn.setOnClickListener(this);
         imgbtn.setOnClickListener(this);
         videobtn.setOnClickListener(this);
+        dreamListDB=new DreamListDB(this);
+        dbReader=dreamListDB.getReadableDatabase();
+
     }
 
     @Override
@@ -81,4 +90,14 @@ public class DreamListActivity extends BaseActivity implements View.OnClickListe
 //        String str=format.format(curDate);
 //        return str;
 //    }
+    public void selectDB(){
+        Cursor cursor=dbReader.query(DreamListDB.TABLE_NAME,null,null,
+                null,null,null,null);
+        adapter=new MyAdapter(this,cursor);
+        lv.setAdapter(adapter);
+    }
+    public void OnResume(){
+        super.onResume();
+        selectDB();
+    }
 }
