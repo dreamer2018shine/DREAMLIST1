@@ -63,7 +63,7 @@ public class TodayPlanActivity extends BaseActivity  implements AbsListView.OnSc
             @Override
             public void onClick(View arg0) {
                 DreamListEdit.ENTER_STATE = 0;
-                Intent intent = new Intent(mContext, DreamListEdit.class);
+                Intent intent = new Intent(mContext, TodayPlanEdit.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("info", "");
                 intent.putExtras(bundle);
@@ -158,7 +158,7 @@ public class TodayPlanActivity extends BaseActivity  implements AbsListView.OnSc
             Intent myIntent = new Intent();
             Bundle bundle = new Bundle();
             bundle.putString("info", content1);
-            DreamListEdit.id = Integer.parseInt(No);
+            TodayPlanEdit.id = Integer.parseInt(No);
             myIntent.putExtras(bundle);
             myIntent.setClass(TodayPlanActivity.this, DreamListEdit.class);
             startActivityForResult(myIntent, 1);

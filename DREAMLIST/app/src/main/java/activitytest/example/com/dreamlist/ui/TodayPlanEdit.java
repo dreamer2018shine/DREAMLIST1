@@ -84,7 +84,7 @@ public class TodayPlanEdit extends BaseActivity {
                 // 添加一个新的日志
                 if (ENTER_STATE == 0) {
                     if (!content.equals("")) {
-                        sql = "insert into " + DreamListDB.TABLE_NAME_NOTES
+                        sql = "insert into " + TodayPlanDB.TABLE_NAME_NOTES
                                 + " values(" + count + "," + "'" + content
                                 + "'" + "," + "'" + dateNum + "')";
                         Log.d("LOG", sql);
