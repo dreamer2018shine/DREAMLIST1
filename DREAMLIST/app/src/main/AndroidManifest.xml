@@ -85,8 +85,12 @@
             android:label="@string/achievement"></activity>
         <activity android:name=".ui.EncouragementActivity"
             android:label="@string/encouragement"></activity>
-        <activity android:name=".ui.DreamListEdit"></activity>
-        <activity android:name=".ui.TodayPlanEdit"></activity>
+        <activity android:name=".ui.DreamListEdit"
+            android:label="@string/dreamlist"></activity>
+        <activity android:name=".ui.TodayPlanEdit"
+            android:label="@string/todayplan"></activity>
+        <activity android:name=".ui.AchievementEdit"
+            android:label="@string/achievement"></activity>
     </application>
 
 </manifest>

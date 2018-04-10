@@ -97,7 +97,7 @@ public class TodayPlanActivity extends BaseActivity  implements AbsListView.OnSc
 
     private List<Map<String, Object>> getData() {
 
-        Cursor cursor = dbread.query("note", null, "content!=\"\"", null, null,
+        Cursor cursor = dbread.query("notetp", null, "content!=\"\"", null, null,
                 null, null);
 
         while (cursor.moveToNext()) {
@@ -145,7 +145,7 @@ public class TodayPlanActivity extends BaseActivity  implements AbsListView.OnSc
         String content1 = content.substring(content.indexOf("=") + 1,
                 content.indexOf(","));
         Log.d("CONTENT", content1);
-        Cursor c = dbread.query("note", null,
+        Cursor c = dbread.query("notetp", null,
                 "content=" + "'" + content1 + "'", null, null, null, null);
         while (c.moveToNext()) {
             String No = c.getString(c.getColumnIndex("_id"));
@@ -190,11 +190,11 @@ public class TodayPlanActivity extends BaseActivity  implements AbsListView.OnSc
                 String content = listview.getItemAtPosition(n) + "";
                 String content1 = content.substring(content.indexOf("=") + 1,
                         content.indexOf(","));
-                Cursor c = dbread.query("note", null, "content=" + "'"
+                Cursor c = dbread.query("notetp", null, "content=" + "'"
                         + content1 + "'", null, null, null, null);
                 while (c.moveToNext()) {
                     String id = c.getString(c.getColumnIndex("_id"));
-                    String sql_del = "update note set content='' where _id="
+                    String sql_del = "update notetp set content='' where _id="
                             + id;
                     dbread.execSQL(sql_del);
                     RefreshNotesList();

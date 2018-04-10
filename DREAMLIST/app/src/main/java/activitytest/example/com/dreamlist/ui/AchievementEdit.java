@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,16 +15,16 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import activitytest.example.com.dreamlist.DB.DreamListDB;
-import activitytest.example.com.dreamlist.DB.TodayPlanDB;
+import activitytest.example.com.dreamlist.DB.AchievementDB;
+
 import activitytest.example.com.dreamlist.R;
 
-public class TodayPlanEdit extends BaseActivity {
+public class AchievementEdit extends BaseActivity{
     private TextView tv_date;
     private EditText et_content;
     private Button btn_ok;
     private Button btn_cancel;
-    private TodayPlanDB DB;
+    private AchievementDB DB;
     private SQLiteDatabase dbread;
     public static int ENTER_STATE = 0;
     public static String last_content;
@@ -37,7 +36,7 @@ public class TodayPlanEdit extends BaseActivity {
         super.onCreate(savedInstanceState);
         // 设置无标题
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.todayplan);
+        setContentView(R.layout.achievement);
 
         Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,7 +56,7 @@ public class TodayPlanEdit extends BaseActivity {
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
 
-        DB = new TodayPlanDB(this);
+        DB = new AchievementDB(this);
         dbread = DB.getReadableDatabase();
 
         Bundle myBundle = this.getIntent().getExtras();
@@ -76,7 +75,7 @@ public class TodayPlanEdit extends BaseActivity {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String dateNum = sdf.format(date);
                 String sql;
-                String sql_count = "SELECT COUNT(*) FROM notetp";
+                String sql_count = "SELECT COUNT(*) FROM notea";
                 SQLiteStatement statement = dbread.compileStatement(sql_count);
                 long count = statement.simpleQueryForLong();
                 Log.d("COUNT", count + "");
@@ -84,7 +83,7 @@ public class TodayPlanEdit extends BaseActivity {
                 // 添加一个新的日志
                 if (ENTER_STATE == 0) {
                     if (!content.equals("")) {
-                        sql = "insert into " + TodayPlanDB.TABLE_NAME_NOTES
+                        sql = "insert into " + AchievementDB.TABLE_NAME_NOTES
                                 + " values(" + count + "," + "'" + content
                                 + "'" + "," + "'" + dateNum + "')";
                         Log.d("LOG", sql);
@@ -94,7 +93,7 @@ public class TodayPlanEdit extends BaseActivity {
                 // 查看并修改一个已有的日志
                 else {
                     Log.d("执行命令", "执行了该函数");
-                    String updatesql = "update notetp set content='"
+                    String updatesql = "update notea set content='"
                             + content + "' where _id=" + id;
                     dbread.execSQL(updatesql);
                     // et_content.setText(last_content);
@@ -124,4 +123,3 @@ public class TodayPlanEdit extends BaseActivity {
 
 
 }
-

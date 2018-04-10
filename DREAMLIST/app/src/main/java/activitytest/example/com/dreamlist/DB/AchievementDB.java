@@ -5,14 +5,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class TodayPlanDB extends SQLiteOpenHelper {
-    public static final String TABLE_NAME_NOTES = "notetp";
+public class AchievementDB extends SQLiteOpenHelper {
+    public static final String TABLE_NAME_NOTES = "notea";
     public static final String COLUMN_NAME_ID = "_id";
     public static final String COLUMN_NAME_NOTE_CONTENT = "content";
     public static final String COLUMN_NAME_NOTE_DATE = "date";
 
-    public TodayPlanDB(Context context) {
-        super(context, "notetp", null, 2);
+    public AchievementDB(Context context) {
+        super(context, "notea", null, 2);
         // TODO Auto-generated constructor stub
     }
 
@@ -42,4 +42,5 @@ public class TodayPlanDB extends SQLiteOpenHelper {
     }
 
 }
+
 
